@@ -1,9 +1,0 @@
-header
-  - Logo / Brand (Routes to Homepage)
-  - login/signup button (routes to respective page)
-  - library button (routes to library page)
-  - github icon (routes to this repo)
-  import { IoBookmark } from "react-icons/io5";
-
-Search Modal
-  - Have a list of 20 or so games, and have the modal placeholder choose one of those at random
