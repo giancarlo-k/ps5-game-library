@@ -1,0 +1,46 @@
+
+/*____________________________header box____________________________*/
+
+/*____________________________logo anchor____________________________*/
+
+/*____________________________library anchor____________________________*/
+
+/*____________________________login/signup anchor____________________________*/
+
+/*____________________________search button____________________________*/
+
+#search-button {
+  background-color: #006FCD;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 44px;
+  width: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.18s ease;
+}
+
+#search-button:hover {
+  background-color: #0257c6;
+}
+
+#searchbar-keystroke-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border: 1px solid rgba(183, 183, 183, 0.39);
+  border-radius: 5px;
+  width: 27px;
+  height: 25px;
+  font-size: 13px;
+  box-sizing: border-box;
+  padding: 0;
+  line-height: 1;
+  margin-left: 10px;
+}
+
