@@ -2,6 +2,7 @@ import '../styles/searchmodal.css';
 import { IoSearch, IoArrowForwardOutline, IoCloseOutline } from "react-icons/io5";
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { searchPlaceholderGames } from '../data';
 
 interface SearchModalProps {
   onCloseSearchModal: () => void;
@@ -13,6 +14,7 @@ const SearchModal = ({ onCloseSearchModal }: SearchModalProps) => {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [dotCount, setDotCount] = useState(1);
+  const [placeholderGame, setPlaceholderGame] = useState('');
   const [show, setShow] = useState(false);
   const searchQueryRef = useRef(searchQuery);
 
@@ -30,14 +32,6 @@ const SearchModal = ({ onCloseSearchModal }: SearchModalProps) => {
       onCloseSearchModal();
     }, 400)
   }
-
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      setDotCount(prev => (prev % 5) + 1 );
-    }, 500)
-
-    return () => clearInterval(intervalID);
-  }, [])
 
   useEffect(() => {
     searchQueryRef.current = searchQuery;
@@ -69,6 +63,24 @@ const SearchModal = ({ onCloseSearchModal }: SearchModalProps) => {
   const handleBlurClick = handleClose;
   const handleModalClick = (e: React.MouseEvent) => e.stopPropagation();
 
+  // Search placeholder
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      setDotCount(prev => (prev % 5) + 1 );
+    }, 500)
+
+    return () => clearInterval(intervalID);
+  }, [])
+
+  const pickPlaceholderGame = () => searchPlaceholderGames[Math.floor(Math.random() * searchPlaceholderGames.length)];
+
+  useEffect(() => {
+    setPlaceholderGame(pickPlaceholderGame());
+  }, []);
+
+  let placeholderValue = `${placeholderGame}${'.'.repeat(dotCount)}`;
+  // End of Search placeholder
+
   return (
     <div onClick={handleBlurClick} className={ show ? 'show' : '' } id='open-area'>
       <div
@@ -83,7 +95,7 @@ const SearchModal = ({ onCloseSearchModal }: SearchModalProps) => {
               setSearchQuery('');
               inputRef.current?.focus();
             }} size={28} id="search-modal-clear-btn"/>}
-            <input ref={inputRef} onChange={handleInput} value={searchQuery} autoComplete='off' autoFocus id="searchbar" type="text" placeholder={`Stellar Blade${'.'.repeat(dotCount)}`}/>
+            <input ref={inputRef} onChange={handleInput} value={searchQuery} autoComplete='off' autoFocus id="searchbar" type="text" placeholder={placeholderValue}/>
           </div>
           <div id="searchbar-line"></div>
         </div>
