@@ -1,6 +1,3 @@
-:root {
-  --primary-blue: #006FCD
-}
 
 /*____________________________open area____________________________*/
 
@@ -29,7 +26,7 @@
   opacity: 0;
   transform: scale(0.96);
   transition: opacity 1s ease, transform 0.35s ease;
-  margin-bottom: 20vh; 
+  margin-bottom: 20vh;
   width: 515px;
   height: 95px;
   background-color: #3d3e41;

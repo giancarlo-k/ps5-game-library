@@ -1,3 +1,6 @@
+// Shell of everything you can see!
+// main "page", serves as a way to organize all pages and components before sending to app.tsx
+
 import { useState } from "react";
 import Header from "../components/Header";
 import SearchModal from "../components/SearchModal";

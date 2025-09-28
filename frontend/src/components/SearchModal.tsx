@@ -18,9 +18,7 @@ const SearchModal = ({ onCloseSearchModal }: SearchModalProps) => {
   const [show, setShow] = useState(false);
   const searchQueryRef = useRef(searchQuery);
 
-  useEffect(() => {
-    setShow(true);
-  }, [])
+  useEffect(() => setShow(true), [])
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -74,9 +72,7 @@ const SearchModal = ({ onCloseSearchModal }: SearchModalProps) => {
 
   const pickPlaceholderGame = () => searchPlaceholderGames[Math.floor(Math.random() * searchPlaceholderGames.length)];
 
-  useEffect(() => {
-    setPlaceholderGame(pickPlaceholderGame());
-  }, []);
+  useEffect(() => setPlaceholderGame(pickPlaceholderGame()), []);
 
   let placeholderValue = `${placeholderGame}${'.'.repeat(dotCount)}`;
   // End of Search placeholder

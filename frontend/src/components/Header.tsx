@@ -1,6 +1,7 @@
 // this will be the main header that will show on ALL pages
 // should contain the website name/logo, search button (activates search modal), login/signup, library page anchor, light/dark mode, github icon
 
+import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 
 interface SearchbarProps {
@@ -11,7 +12,9 @@ const Header = ({ openSearchModal }: SearchbarProps) => {
 
   return (
     <div id="header">
-      <span>heder</span>
+      <Link to="/" id="logo-anchor">
+        <span id="logo-span">ps&nbsp;&nbsp;&nbsp;pulse</span>
+      </Link>
       <Searchbar openSearchModal={openSearchModal} />
     </div>
   )
