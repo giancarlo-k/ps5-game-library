@@ -7,17 +7,96 @@
 
 /*____________________________header box____________________________*/
 
+#header {
+  /* border: 2px solid red; */
+  display: flex;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  padding-left: 10px;
+}
+
 /*____________________________logo anchor____________________________*/
 
-#logo-span {
-  color: var(--primary-blue);;
+#logo-text {
   font-family: 'LogoFont', sans-serif;
-  font-size: 40px;
+  font-size: 28px;
+  display: inline-block;
+  position: relative;
+  color: var(--primary-blue);
+  background: linear-gradient(
+    120deg,
+    var(--primary-blue) 0%,
+    rgba(0, 103, 205, 0.455) 50%,
+    var(--primary-blue) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--primary-blue);
+  background-size: 150% 100%;
+  transition: color 0.3s ease;
+}
+
+#logo-anchor:hover #logo-text {
+  color: transparent; /* reveal gradient */
+  animation: shine-back-forth 2.5s infinite linear;
+}
+
+@keyframes shine-back-forth {
+  0% { background-position: 500% 0; }
+  100% { background-position: -100% 0; }
+}
+
+#logo-anchor:hover #logo-underline::after {
+  opacity: 0;
+  transition: opacity 0.67s ease;  /* 67 reference */
 }
 
 #logo-anchor {
   text-decoration: none;
 }
+
+#logo-underline {
+  background-color: var(--primary-blue);
+  width: 242px;
+  height: 5px;
+  margin-top: 3px;
+  border-bottom-left-radius: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+#logo-underline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.283) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 6.7s infinite; /* 67 reference again */
+}
+
+@keyframes shine {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: -100%
+  }
+}
+
 
 /*____________________________library anchor____________________________*/
 

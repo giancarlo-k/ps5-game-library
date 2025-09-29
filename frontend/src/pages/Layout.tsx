@@ -5,6 +5,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import SearchModal from "../components/SearchModal";
 import { Outlet } from "react-router-dom";
+// import FallingIcons from "../components/FloatingIcons";
 
 const Layout = () => {
   const [isSearchModalActive, setIsSearchModalActive] = useState(false);
@@ -25,9 +26,10 @@ const Layout = () => {
       minHeight: '100vh',
       backgroundColor: 'lightgray'
     }}>
+      {/* <FallingIcons /> */}
       <Header openSearchModal={openSearchModal} />
       { isSearchModalActive ? ( <SearchModal onCloseSearchModal={closeSearchModal} /> ) : null }
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, paddingTop: '65px' }}>
         <Outlet />
       </main>
     </div>

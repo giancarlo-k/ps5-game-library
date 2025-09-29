@@ -13,7 +13,8 @@ const Header = ({ openSearchModal }: SearchbarProps) => {
   return (
     <div id="header">
       <Link to="/" id="logo-anchor">
-        <span id="logo-span">ps&nbsp;&nbsp;&nbsp;pulse</span>
+        <div id="logo-text">ps&nbsp;&nbsp;&nbsp;pulse</div>
+        <div id="logo-underline"></div>
       </Link>
       <Searchbar openSearchModal={openSearchModal} />
     </div>
